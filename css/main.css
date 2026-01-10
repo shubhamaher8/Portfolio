@@ -10,12 +10,10 @@
   --border-focus: rgba(0, 255, 213, 0.5);
 
   /* Typography */
-  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
 
   /* Spacing */
   --container-width: 1400px;
-  --header-height: 120px;
+  --header-height: 105px;
 }
 
 *,
@@ -29,7 +27,7 @@
 }
 
 html {
-  font-family: var(--font-ui);
+  font-family: 'Space Grotesk', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
@@ -105,7 +103,7 @@ h6 {
 }
 
 .mono {
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .text-muted {
@@ -161,14 +159,68 @@ h6 {
 .brand {
   font-weight: 700;
   font-size: 1.25rem;
-  border: 1px solid var(--border);
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.02);
   transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 50;
 }
 
-.brand:hover {
-  border-color: var(--text);
+.brand-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px !important;
+  transition: border-color 0.3s;
+}
+
+.brand:hover .brand-icon {
+  border-color: rgba(0, 255, 213, 0.5);
+}
+
+.brand-code {
+  position: absolute;
+  color: var(--accent);
+  opacity: 0;
+  transition: all 0.3s;
+  transform: scale(1.25);
+}
+
+.brand:hover .brand-code {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.brand-letter {
+  font-weight: bold;
+  color: white;
+  font-size: 1.125rem;
+  transition: opacity 0.3s;
+}
+
+.brand:hover .brand-letter {
+  opacity: 0;
+}
+
+.brand-text {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: -0.025em;
+  transition: color 0.3s;
+}
+
+.brand:hover .brand-text {
+  color: var(--accent);
 }
 
 .nav-link {
@@ -204,13 +256,11 @@ h6 {
 }
 
 .hero-title {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3rem, 5vw, 5rem);
   margin-bottom: 24px;
 }
 
 .hero-subtitle {
-  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--muted);
@@ -229,7 +279,7 @@ h6 {
   justify-content: center;
   padding: 14px 28px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.25rem;
   border: 1px solid var(--accent);
   background: rgba(0, 255, 213, 0.05);
   color: var(--accent);
@@ -378,7 +428,7 @@ h6 {
 .marquee-item {
   padding: 12px 24px;
   border: 1px solid var(--border);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   color: var(--muted);
   white-space: nowrap;
@@ -452,7 +502,7 @@ section {
 .skill-level {
   font-size: 0.75rem;
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Certifications */
@@ -502,7 +552,7 @@ section {
   padding: 8px 20px;
   border: 1px solid var(--border);
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   transition: all 0.2s;
 }
@@ -575,7 +625,7 @@ section {
   padding: 4px 8px;
   border: 1px solid var(--border);
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Modal */
@@ -669,7 +719,7 @@ section {
   border-bottom: 1px solid var(--border);
   padding: 10px 20px;
   margin: -40px -40px 40px -40px;
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.8rem;
   color: var(--muted);
   display: flex;
@@ -682,7 +732,7 @@ section {
 
 .form-label {
   display: block;
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   margin-bottom: 8px;
   color: var(--accent);
