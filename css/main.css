@@ -410,12 +410,12 @@ h6 {
 
 .marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, var(--panel), transparent);
+  background: linear-gradient(to right, var(--bg) 0%, rgba(7, 9, 11, 0.9) 40%, rgba(7, 9, 11, 0.5) 70%, transparent 100%);
 }
 
 .marquee-container::after {
   right: 0;
-  background: linear-gradient(to left, var(--panel), transparent);
+  background: linear-gradient(to left, var(--bg) 0%, rgba(7, 9, 11, 0.9) 40%, rgba(7, 9, 11, 0.5) 70%, transparent 100%);
 }
 
 .marquee-content {
