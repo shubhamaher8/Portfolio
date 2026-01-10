@@ -204,11 +204,13 @@ h6 {
 }
 
 .hero-title {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3rem, 5vw, 5rem);
   margin-bottom: 24px;
 }
 
 .hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--muted);
