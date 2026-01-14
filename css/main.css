@@ -234,13 +234,16 @@ h6 {
   font-size: 0.95rem;
   font-weight: 500;
   transition: all 0.2s;
-}
-
-.nav-link:hover,
-.nav-link[aria-current="page"] {
   border-color: var(--border);
   background: rgba(255, 255, 255, 0.02);
   color: var(--accent);
+}
+
+.nav-link:hover
+ {
+  background: rgba(0, 255, 213, 0.05);
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 213, 0.3);
 }
 
 /* Hero Section */
