@@ -40,33 +40,82 @@ function initMarquee() {
   const container = document.querySelector('.marquee-content');
   if (!container) return;
 
-  // Clone items for infinite loop
-  const items = Array.from(container.children);
-  items.forEach(item => {
-    const clone = item.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    container.appendChild(clone);
-  });
+  // Store original items before cloning
+  const originalItems = Array.from(container.children);
+  const itemCount = originalItems.length;
+  
+  // Clone items multiple times for seamless infinite loop
+  // Clone at least 3 sets to ensure smooth scrolling
+  for (let i = 0; i < 3; i++) {
+    originalItems.forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      container.appendChild(clone);
+    });
+  }
 
-  let scrollPos = 0;
-  const speed = 1; // px per frame
-  let reqId;
-
-  function animate() {
-    scrollPos -= speed;
-    // Reset if scrolled half (since we doubled content)
-    if (Math.abs(scrollPos) >= container.scrollWidth / 2) {
-      scrollPos = 0;
+  // Calculate width of one complete set of original items
+  // Use offsetWidth of the first set by measuring from first to (first + count) item
+  requestAnimationFrame(() => {
+    const firstItem = originalItems[0];
+    const secondSetFirstItem = container.children[itemCount];
+    
+    // Calculate one set width: distance from first item to start of second set
+    let oneSetWidth;
+    if (secondSetFirstItem) {
+      oneSetWidth = secondSetFirstItem.offsetLeft - firstItem.offsetLeft;
+    } else {
+      // Fallback: sum of all original items' widths + gaps
+      let totalWidth = 0;
+      originalItems.forEach((item, index) => {
+        totalWidth += item.offsetWidth;
+        if (index < originalItems.length - 1) {
+          totalWidth += 32; // gap value
+        }
+      });
+      oneSetWidth = totalWidth;
     }
-    container.style.transform = `translateX(${scrollPos}px)`;
-    reqId = requestAnimationFrame(animate);
-  }
 
-  // PreferReducedMotion check
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!mediaQuery.matches) {
-    reqId = requestAnimationFrame(animate);
-  }
+    let scrollPos = 0;
+    const speed = 1; // px per frame (adjust for desired speed)
+    let reqId;
+
+    function animate() {
+      scrollPos -= speed;
+      
+      // Reset position seamlessly when we've scrolled one complete set
+      if (Math.abs(scrollPos) >= oneSetWidth) {
+        scrollPos += oneSetWidth;
+      }
+      
+      container.style.transform = `translateX(${scrollPos}px)`;
+
+      // Add centered effect
+      const centerX = container.parentElement.offsetWidth / 2; // Use parent or container width
+      let closestItem = null;
+      let minDistance = Infinity;
+      container.querySelectorAll('.marquee-item').forEach(item => {
+        const itemLeft = item.offsetLeft + scrollPos;
+        const distance = Math.abs(itemLeft + item.offsetWidth / 2 - centerX); // Center of item
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestItem = item;
+        }
+      });
+      container.querySelectorAll('.marquee-item').forEach(item => item.classList.remove('centered'));
+      if (closestItem && minDistance < 50) { // Threshold to trigger effect
+        closestItem.classList.add('centered');
+      }
+
+      reqId = requestAnimationFrame(animate);
+    }
+
+    // PreferReducedMotion check
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!mediaQuery.matches) {
+      reqId = requestAnimationFrame(animate);
+    }
+  });
 }
 
 /* Projects Filter */

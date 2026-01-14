@@ -22,9 +22,24 @@
 <body>
 
     <header class="site-header">
-        <nav class="container header-inner">
-            <a href="index.html" class="brand mono">Shubham.dev</a>
-            <button class="mobile-toggle mono" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+        <nav class="header-inner">
+            <a href="index.html" class="brand group flex items-center gap-2 relative z-50">
+                <div class="brand-icon relative flex items-center justify-center w-10 h-10 overflow-hidden rounded-lg bg-white/5 border border-white/10 group-hover:border-neon-green/50 transition-colors">
+                    <svg class="brand-code absolute text-neon-green opacity-0 group-hover:opacity-100 transition-all duration-300 scale-125 group-hover:scale-100" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16,18 22,12 16,6"></polyline>
+                        <polyline points="8,6 2,12 8,18"></polyline>
+                    </svg>
+                    <span class="brand-letter font-bold text-white text-lg group-hover:opacity-0 transition-opacity duration-300">S</span>
+                </div>
+                <span class="brand-text text-lg font-display font-bold text-white tracking-tight group-hover:text-neon-green transition-colors">
+                    shubham.dev
+                </span>
+            </a>
+
+            <button class="mobile-toggle mono" aria-label="Toggle menu" aria-expanded="false">
+                MENU
+            </button>
+
             <div class="nav-menu">
                 <a href="index.html" class="nav-link" aria-current="page">Home</a>
                 <a href="index.html#skills" class="nav-link" aria-current="page">Skills</a>
@@ -34,8 +49,8 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section class="contact-container">
+    <main>
+        <section class="container contact-container">
             <h1 class="section-title">Initialize_Handshake</h1>
 
             <div class="terminal-panel">

@@ -154,6 +154,9 @@ h6 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0 20px;
+  max-width: 1430px; /* Add this to limit width */
+  margin: 0 auto; /* Add this to center it */
 }
 
 .brand {
@@ -423,6 +426,8 @@ h6 {
   gap: 32px;
   width: max-content;
   will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .marquee-item {
@@ -436,7 +441,7 @@ h6 {
   background: var(--bg);
 }
 
-.marquee-item:hover {
+.marquee-item.centered {
   border-color: var(--accent);
   color: var(--accent);
   box-shadow: 0 0 10px rgba(0, 255, 213, 0.1);
