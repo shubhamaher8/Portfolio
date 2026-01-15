@@ -995,6 +995,10 @@ section {
     justify-content: flex-start;
     /* Center content or start? User said "just the names and icons" */
   }
+
+  .hero {
+    margin-top: 48px; /* Increase this value as needed */
+  }
 }
 
 @media (min-width: 641px) {
