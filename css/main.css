@@ -926,26 +926,25 @@ section {
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: transform 0.2s;  /* Add transition for smooth hover */
+}
+
+.ql-row:hover .ql-card {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* Matching element styling to .cert-card but adapted for smaller rows */
 .ql-card {
   border: 1px solid var(--border);
   background: var(--panel);
-  padding: 16px 24px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   gap: 12px;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   font-family: 'Space Grotesk', sans-serif;
-  border: 2px solid var(--text);
-  /* User requested thick box/certificate style */
-}
-
-.ql-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .ql-label {
@@ -963,7 +962,7 @@ section {
   overflow: hidden;
 }
 
-.ql-url a {
+.ql-url h3 {
   display: block;
   width: 100%;
   white-space: nowrap;
@@ -971,11 +970,6 @@ section {
   text-overflow: ellipsis;
   text-decoration: none;
   color: inherit;
-}
-
-.ql-url a:hover {
-  color: var(--accent);
-  text-decoration: underline;
 }
 
 .ql-sep {
