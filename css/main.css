@@ -804,17 +804,26 @@ section {
 @media (max-width: 1024px) {
   .hero-content {
     grid-column: 1 / span 12;
-    text-align: center;
+    text-align: left;
+    /* Changed from center to left */
+    align-items: flex-start;
+    /* Ensure flex items align left */
   }
 
   .hero-image {
     grid-column: 1 / span 12;
     justify-content: center;
+    /* Image can still be centered or left, user asked for title/subtitle/button left */
+    display: flex;
+    /* Ensure flex is applied */
     margin-top: 40px;
   }
 
   .cta-group {
-    justify-content: center;
+    justify-content: flex-start;
+    /* Align buttons to start */
+    margin-left: 0;
+    /* Reset negative margin if any */
   }
 
   .projects-grid {
@@ -854,7 +863,23 @@ section {
   }
 
   .header-inner {
+    padding: 0 20px;
+    /* Ensure 20px padding matches container */
+    max-width: 100%;
+    /* Ensure full width */
     flex-wrap: wrap;
+  }
+
+  /* Fix header alignment to match container */
+  .site-header {
+    padding: 0;
+    /* Remove extra padding if any on header itself */
+  }
+
+  /* Reset link brand specific styles if needed */
+  .nav-link-brand {
+    margin-left: 0;
+    padding-left: 0;
   }
 
   /* Fullscreen Mobile Menu */
@@ -946,6 +971,29 @@ section {
   .mobile-toggle[aria-expanded="true"] .icon-close {
     opacity: 1;
     transform: rotate(0deg) scale(1);
+  }
+
+  /* Quick Links Mobile: Hide URL, Show only Label */
+  .ql-url {
+    display: none;
+  }
+
+  .ql-sep {
+    display: none;
+  }
+
+  .ql-row {
+    flex-direction: row;
+    /* Keep row to show label, but url is hidden */
+    width: 100%;
+  }
+
+  .ql-label {
+    width: 100%;
+    /* Take full width */
+    max-width: none;
+    justify-content: flex-start;
+    /* Center content or start? User said "just the names and icons" */
   }
 }
 
@@ -1041,19 +1089,43 @@ section {
   user-select: none;
 }
 
+/* Final Mobile Overrides to ensure correct precedence */
 @media (max-width: 768px) {
+
+  /* Fix Quick Links: Hide URL and Separator, show full width label */
   .ql-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    flex-direction: row !important;
+    width: 100%;
   }
 
+  .ql-url,
   .ql-sep {
-    display: none;
+    display: none !important;
   }
 
   .ql-label {
-    width: 100%;
-    max-width: none;
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  /* Ensure Hero is Left Aligned */
+  .hero-content {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  .cta-group {
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .hero-image {
+    justify-content: flex-start !important;
+    /* Keep image aligned too or center if preferred, user said title/subtitle/button left */
   }
 }
