@@ -285,29 +285,4 @@ function initHeroAnimations() {
   gsap.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
   gsap.from(".cta-group .btn", { scale: 0.8, opacity: 0, duration: 0.8, stagger: 0.2, delay: 0.6, ease: "back.out(1.7)" });
 
-
-  // 3. Subtle parallax on scroll (samurai moves slower)
-  gsap.to(".hero-img-container", {
-    y: "20%",  // Adjust for depth
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".hero",
-      scrub: true,  // Smooth with scroll
-      start: "top top",
-      end: "bottom top"
-    }
-  });
-
-  // 5. Scroll-triggered fade out for smooth section transition
-  gsap.to(".hero-content, .hero-image", {
-    opacity: 0,
-    y: -50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: ".marquee-container",
-      start: "top bottom",
-      end: "top top",
-      scrub: true
-    }
-  });
 }
