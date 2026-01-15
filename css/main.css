@@ -43,18 +43,14 @@ body {
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.1);
-  background-image: linear-gradient(
-      -90deg,
+  background-image: linear-gradient(-90deg,
       transparent calc(var(--gap) - var(--line)),
       var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    ),
-    linear-gradient(
-      0deg,
+      var(--color) var(--gap)),
+    linear-gradient(0deg,
       transparent calc(var(--gap) - var(--line)),
       var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)
-    );
+      var(--color) var(--gap));
   background-size: var(--gap) var(--gap);
   background-position: 0 0;
   animation: moveGrid 5s linear infinite;
@@ -64,6 +60,7 @@ body {
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: var(--gap) var(--gap);
   }
@@ -155,8 +152,10 @@ h6 {
   align-items: center;
   width: 100%;
   padding: 0 20px;
-  max-width: 1430px; /* Add this to limit width */
-  margin: 0 auto; /* Add this to center it */
+  max-width: 1430px;
+  /* Add this to limit width */
+  margin: 0 auto;
+  /* Add this to center it */
 }
 
 .brand {
@@ -239,8 +238,7 @@ h6 {
   color: var(--accent);
 }
 
-.nav-link:hover
- {
+.nav-link:hover {
   background: rgba(0, 255, 213, 0.05);
   transform: translateY(-2px);
   border-color: rgba(0, 255, 213, 0.3);
@@ -481,7 +479,8 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
-  margin-bottom: 60px; /* Add this line to increase space below */
+  margin-bottom: 60px;
+  /* Add this line to increase space below */
 }
 
 .skill-card {
@@ -913,5 +912,92 @@ section {
 
   .marquee-content {
     animation: none !important;
+  }
+}
+
+/* Quick Links Section */
+.ql-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ql-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Matching element styling to .cert-card but adapted for smaller rows */
+.ql-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  font-family: 'Space Grotesk', sans-serif;
+  border: 2px solid var(--text);
+  /* User requested thick box/certificate style */
+}
+
+.ql-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.ql-label {
+  width: 180px;
+  max-width: 200px;
+  font-weight: 700;
+  color: var(--text);
+  flex-shrink: 0;
+  justify-content: flex-start;
+}
+
+.ql-url {
+  flex: 1;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.ql-url a {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ql-url a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.ql-sep {
+  font-weight: 800;
+  color: var(--muted);
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .ql-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .ql-sep {
+    display: none;
+  }
+
+  .ql-label {
+    width: 100%;
+    max-width: none;
   }
 }
