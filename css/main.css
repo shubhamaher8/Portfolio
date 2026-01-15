@@ -663,24 +663,13 @@ section {
   background: var(--bg);
   border: 1px solid var(--border);
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-}
-
-.modal-img-col {
-  border-right: 1px solid var(--border);
-}
-
-.modal-img-col img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-info {
@@ -926,7 +915,8 @@ section {
   display: flex;
   align-items: center;
   gap: 16px;
-  transition: transform 0.2s;  /* Add transition for smooth hover */
+  transition: transform 0.2s;
+  /* Add transition for smooth hover */
 }
 
 .ql-row:hover .ql-card {

@@ -43,7 +43,7 @@ function initMarquee() {
   // Store original items before cloning
   const originalItems = Array.from(container.children);
   const itemCount = originalItems.length;
-  
+
   // Clone items multiple times for seamless infinite loop
   // Clone at least 3 sets to ensure smooth scrolling
   for (let i = 0; i < 3; i++) {
@@ -59,7 +59,7 @@ function initMarquee() {
   requestAnimationFrame(() => {
     const firstItem = originalItems[0];
     const secondSetFirstItem = container.children[itemCount];
-    
+
     // Calculate one set width: distance from first item to start of second set
     let oneSetWidth;
     if (secondSetFirstItem) {
@@ -82,12 +82,12 @@ function initMarquee() {
 
     function animate() {
       scrollPos -= speed;
-      
+
       // Reset position seamlessly when we've scrolled one complete set
       if (Math.abs(scrollPos) >= oneSetWidth) {
         scrollPos += oneSetWidth;
       }
-      
+
       container.style.transform = `translateX(${scrollPos}px)`;
 
       // Add centered effect
@@ -158,7 +158,7 @@ function initModal() {
 
   const contentTitle = modal.querySelector('#m-title');
   const contentDesc = modal.querySelector('#m-desc');
-  const contentImg = modal.querySelector('#m-img');
+
   const contentTags = modal.querySelector('#m-tags');
   const linkRepo = modal.querySelector('#m-repo');
   const linkLive = modal.querySelector('#m-live');
@@ -167,7 +167,7 @@ function initModal() {
     // Populate data
     contentTitle.textContent = card.querySelector('.project-title').textContent;
     contentDesc.textContent = card.dataset.fullDesc || "No details available.";
-    contentImg.src = card.querySelector('img').src;
+
 
     // Tags
     contentTags.innerHTML = '';
