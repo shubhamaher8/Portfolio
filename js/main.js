@@ -32,6 +32,22 @@ function initMobileMenu() {
     const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', !isExpanded);
     menu.classList.toggle('active');
+
+    // Toggle body scroll
+    if (!isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close menu when clicking a link
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
   });
 }
 

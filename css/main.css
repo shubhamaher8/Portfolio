@@ -857,23 +857,95 @@ section {
     flex-wrap: wrap;
   }
 
+  /* Fullscreen Mobile Menu */
   .nav-menu {
-    display: none;
-    /* simple Toggle handled by js if needed or just stack them */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    order: 3;
+    height: 100vh;
     background: var(--bg);
+    z-index: 98;
+    /* Behind the toggle button */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+
+    /* Animation state: hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
   }
 
   .nav-menu.active {
-    display: block;
+    /* Animation state: visible */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Override nav-link styles for mobile menu */
+  .nav-menu .nav-link {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .nav-menu .nav-link:hover {
+    color: var(--accent);
+    transform: scale(1.05);
   }
 
   /* Mobile Menu Toggle */
   .mobile-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 8px;
     border: 1px solid var(--border);
+    width: 44px;
+    height: 44px;
+    z-index: 99;
+    /* Above the menu */
+    position: relative;
+    background: var(--bg);
+    /* Ensure background covers menu content if they overlap */
+  }
+
+  /* Toggle Icons */
+  .mobile-toggle svg {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .mobile-toggle[aria-expanded="false"] .icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+
+  .mobile-toggle[aria-expanded="false"] .icon-menu {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .icon-menu {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .icon-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
   }
 }
 
