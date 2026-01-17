@@ -538,7 +538,7 @@ section {
 .cert-num {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--border);
+  color: rgba(255, 255, 255, 0.45);
   margin-right: 32px;
   min-width: 40px;
 }
