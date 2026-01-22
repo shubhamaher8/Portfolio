@@ -260,7 +260,6 @@ h6 {
 .cta-group {
   display: flex;
   gap: 16px;
-  margin-left: -20px;
 }
 
 .btn {

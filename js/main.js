@@ -283,6 +283,5 @@ function initHeroAnimations() {
   // 1. Text fade-in stagger on load
   gsap.from(".hero-title", { y: 100, opacity: 0, duration: 1.2, ease: "power3.out" });
   gsap.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
-  gsap.from(".cta-group .btn", { scale: 0.8, opacity: 0, duration: 0.8, stagger: 0.2, delay: 0.6, ease: "back.out(1.7)" });
 
 }
