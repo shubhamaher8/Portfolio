@@ -225,15 +225,9 @@ function initForm() {
 
     try {
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
-
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: formData
       });
 
       const json = await res.json();
@@ -243,7 +237,7 @@ function initForm() {
         status.style.color = 'var(--accent)';
         form.reset();
       } else {
-        throw new Error(json.message || 'Failed');
+        throw new Error('Failed');
       }
     } catch (err) {
       status.textContent = '> Transmission failed. Please try again.';
