@@ -565,6 +565,10 @@ section {
   color: var(--bg);
 }
 
+.close-modal:focus-visible {
+    outline-offset: -4px; /* Pulls the outline inside instead of pushing it out */
+}
+
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
