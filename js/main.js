@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
-  initProjects();
+
   initModal();
   initForm();
   initMobileMenu();
@@ -134,35 +134,7 @@ function initMarquee() {
   });
 }
 
-/* Projects Filter */
-function initProjects() {
-  const filters = document.querySelectorAll('.filter-btn');
-  const projects = document.querySelectorAll('.project-card');
 
-  if (!filters.length) return;
-
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Toggle active state
-      filters.forEach(f => f.classList.remove('active'));
-      btn.classList.add('active');
-
-      const category = btn.getAttribute('data-filter');
-
-      projects.forEach(project => {
-        const categories = project.getAttribute('data-category').split(' ');
-        if (category === 'all' || categories.includes(category)) {
-          project.style.display = 'flex';
-          // optional fade in
-          project.style.opacity = '1';
-        } else {
-          project.style.display = 'none';
-          project.style.opacity = '0';
-        }
-      });
-    });
-  });
-}
 
 /* Modal */
 function initModal() {
