@@ -1,5 +1,4 @@
 :root {
-  /* Colors */
   --bg: #07090b;
   --panel: #0f1316;
   --text: #e6eef6;
@@ -22,7 +21,7 @@
 }
 
 html {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-color: var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
@@ -38,14 +37,19 @@ body {
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.1);
-  background-image: linear-gradient(-90deg,
+  background-image:
+    linear-gradient(
+      -90deg,
       transparent calc(var(--gap) - var(--line)),
       var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap)),
-    linear-gradient(0deg,
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
       transparent calc(var(--gap) - var(--line)),
       var(--color) calc(var(--gap) - var(--line) + 1px),
-      var(--color) var(--gap));
+      var(--color) var(--gap)
+    );
   background-size: var(--gap) var(--gap);
   background-position: 0 0;
   animation: moveGrid 5s linear infinite;
@@ -92,14 +96,12 @@ h6 {
 }
 
 .mono {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .text-muted {
   color: var(--muted);
 }
-
-
 
 .container {
   max-width: var(--container-width);
@@ -134,8 +136,6 @@ h6 {
   max-width: 1430px;
   margin: 0 auto;
 }
-
-
 
 .nav-link {
   display: inline-block;
@@ -198,7 +198,9 @@ h6 {
   border: 1px solid var(--accent);
   background: rgba(0, 255, 213, 0.05);
   color: var(--accent);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .btn:hover {
@@ -206,8 +208,6 @@ h6 {
   box-shadow: 0 4px 12px rgba(0, 255, 213, 0.15);
   background: rgba(0, 255, 213, 0.1);
 }
-
-
 
 .hero-image {
   grid-column: 8 / span 5;
@@ -223,7 +223,7 @@ h6 {
 }
 
 .hero-img-container::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: -10px;
@@ -236,7 +236,7 @@ h6 {
 }
 
 .hero-img-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   right: -10px;
@@ -249,7 +249,7 @@ h6 {
 }
 
 .hero-image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -10px;
   left: -10px;
@@ -262,7 +262,7 @@ h6 {
 }
 
 .hero-image::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   right: -10px;
@@ -298,7 +298,7 @@ h6 {
 
 .marquee-container::before,
 .marquee-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -309,12 +309,24 @@ h6 {
 
 .marquee-container::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg) 0%, rgba(7, 9, 11, 0.9) 40%, rgba(7, 9, 11, 0.5) 70%, transparent 100%);
+  background: linear-gradient(
+    to right,
+    var(--bg) 0%,
+    rgba(7, 9, 11, 0.9) 40%,
+    rgba(7, 9, 11, 0.5) 70%,
+    transparent 100%
+  );
 }
 
 .marquee-container::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg) 0%, rgba(7, 9, 11, 0.9) 40%, rgba(7, 9, 11, 0.5) 70%, transparent 100%);
+  background: linear-gradient(
+    to left,
+    var(--bg) 0%,
+    rgba(7, 9, 11, 0.9) 40%,
+    rgba(7, 9, 11, 0.5) 70%,
+    transparent 100%
+  );
 }
 
 .marquee-content {
@@ -329,7 +341,7 @@ h6 {
 .marquee-item {
   padding: 12px 24px;
   border: 1px solid var(--border);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.9rem;
   color: var(--muted);
   white-space: nowrap;
@@ -355,7 +367,7 @@ section {
 }
 
 .section-title::after {
-  content: '_';
+  content: "_";
   color: var(--accent);
   animation: blink 1s step-end infinite;
 }
@@ -378,7 +390,10 @@ section {
   background: var(--panel);
   padding: 16px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -400,7 +415,7 @@ section {
 .skill-level {
   font-size: 0.75rem;
   color: var(--muted);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .cert-list {
@@ -436,8 +451,6 @@ section {
   font-size: 1.25rem;
   margin-bottom: 4px;
 }
-
-
 
 .projects-grid {
   display: grid;
@@ -501,7 +514,7 @@ section {
   padding: 4px 8px;
   border: 1px solid var(--border);
   color: var(--muted);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .modal-overlay {
@@ -567,7 +580,7 @@ section {
 }
 
 .close-modal:focus-visible {
-    outline-offset: -4px; /* Pulls the outline inside instead of pushing it out */
+  outline-offset: -4px;
 }
 
 .contact-container {
@@ -588,7 +601,7 @@ section {
   border-bottom: 1px solid var(--border);
   padding: 10px 20px;
   margin: -40px -40px 40px -40px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.8rem;
   color: var(--muted);
   display: flex;
@@ -601,7 +614,7 @@ section {
 
 .form-label {
   display: block;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.9rem;
   margin-bottom: 8px;
   color: var(--accent);
@@ -696,8 +709,6 @@ section {
     grid-template-columns: 1fr;
     max-height: 80vh;
   }
-
-
 }
 
 @media (max-width: 640px) {
@@ -793,7 +804,9 @@ section {
     width: 24px;
     height: 24px;
     fill: currentColor;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .mobile-toggle[aria-expanded="false"] .icon-close {
@@ -851,7 +864,6 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   ::before,
   ::after {
@@ -892,8 +904,11 @@ section {
   display: flex;
   align-items: center;
   gap: 12px;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  font-family: 'Space Grotesk', sans-serif;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .ql-label {
@@ -929,7 +944,6 @@ section {
 }
 
 @media (max-width: 768px) {
-
   .ql-row {
     flex-direction: row !important;
     width: 100%;
@@ -948,7 +962,6 @@ section {
 }
 
 @media (max-width: 1024px) {
-
   .hero-content {
     text-align: left !important;
     align-items: flex-start !important;

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
-
   initModal();
   initForm();
   initMobileMenu();
@@ -8,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimations();
 });
 
-
-
-/* Scroll Header */
 function initScrollHeader() {
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
@@ -22,26 +18,20 @@ function initScrollHeader() {
   });
 }
 
-/* Mobile Menu */
 function initMobileMenu() {
   const toggle = document.querySelector('.mobile-toggle');
   const menu = document.querySelector('.nav-menu');
   if (!toggle || !menu) return;
-
   toggle.addEventListener('click', () => {
     const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', !isExpanded);
     menu.classList.toggle('active');
-
-    // Toggle body scroll
     if (!isExpanded) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
   });
-
-  // Close menu when clicking a link
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       toggle.setAttribute('aria-expanded', 'false');
@@ -51,17 +41,11 @@ function initMobileMenu() {
   });
 }
 
-/* Marquee */
 function initMarquee() {
   const container = document.querySelector('.marquee-content');
   if (!container) return;
-
-  // Store original items before cloning
   const originalItems = Array.from(container.children);
   const itemCount = originalItems.length;
-
-  // Clone items multiple times for seamless infinite loop
-  // Clone at least 3 sets to ensure smooth scrolling
   for (let i = 0; i < 3; i++) {
     originalItems.forEach(item => {
       const clone = item.cloneNode(true);
@@ -70,63 +54,49 @@ function initMarquee() {
     });
   }
 
-  // Calculate width of one complete set of original items
-  // Use offsetWidth of the first set by measuring from first to (first + count) item
   requestAnimationFrame(() => {
     const firstItem = originalItems[0];
     const secondSetFirstItem = container.children[itemCount];
-
-    // Calculate one set width: distance from first item to start of second set
     let oneSetWidth;
     if (secondSetFirstItem) {
       oneSetWidth = secondSetFirstItem.offsetLeft - firstItem.offsetLeft;
     } else {
-      // Fallback: sum of all original items' widths + gaps
       let totalWidth = 0;
       originalItems.forEach((item, index) => {
         totalWidth += item.offsetWidth;
         if (index < originalItems.length - 1) {
-          totalWidth += 32; // gap value
+          totalWidth += 32;
         }
       });
       oneSetWidth = totalWidth;
     }
-
     let scrollPos = 0;
-    const speed = 1; // px per frame (adjust for desired speed)
+    const speed = 1;
     let reqId;
 
     function animate() {
       scrollPos -= speed;
-
-      // Reset position seamlessly when we've scrolled one complete set
       if (Math.abs(scrollPos) >= oneSetWidth) {
         scrollPos += oneSetWidth;
       }
-
       container.style.transform = `translateX(${scrollPos}px)`;
-
-      // Add centered effect
-      const centerX = container.parentElement.offsetWidth / 2; // Use parent or container width
+      const centerX = container.parentElement.offsetWidth / 2;
       let closestItem = null;
       let minDistance = Infinity;
       container.querySelectorAll('.marquee-item').forEach(item => {
         const itemLeft = item.offsetLeft + scrollPos;
-        const distance = Math.abs(itemLeft + item.offsetWidth / 2 - centerX); // Center of item
+        const distance = Math.abs(itemLeft + item.offsetWidth / 2 - centerX);
         if (distance < minDistance) {
           minDistance = distance;
           closestItem = item;
         }
       });
       container.querySelectorAll('.marquee-item').forEach(item => item.classList.remove('centered'));
-      if (closestItem && minDistance < 50) { // Threshold to trigger effect
+      if (closestItem && minDistance < 50) {
         closestItem.classList.add('centered');
       }
-
       reqId = requestAnimationFrame(animate);
     }
-
-    // PreferReducedMotion check
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (!mediaQuery.matches) {
       reqId = requestAnimationFrame(animate);
@@ -134,30 +104,20 @@ function initMarquee() {
   });
 }
 
-
-
-/* Modal */
 function initModal() {
   const modal = document.getElementById('project-modal');
   const closeBtn = document.querySelector('.close-modal');
   const triggers = document.querySelectorAll('.project-card');
-
   if (!modal) return;
-
   const contentTitle = modal.querySelector('#m-title');
   const contentDesc = modal.querySelector('#m-desc');
-
   const contentTags = modal.querySelector('#m-tags');
   const linkRepo = modal.querySelector('#m-repo');
   const linkLive = modal.querySelector('#m-live');
-
   function openModal(card) {
-    // Populate data
     contentTitle.textContent = card.querySelector('.project-title').textContent;
     contentDesc.textContent = card.dataset.fullDesc || "No details available.";
 
-
-    // Tags
     contentTags.innerHTML = '';
     const tags = card.dataset.stack.split(',');
     tags.forEach(tag => {
@@ -167,7 +127,6 @@ function initModal() {
       contentTags.appendChild(span);
     });
 
-    // Links
     linkRepo.href = card.dataset.repo || '#';
     linkLive.href = card.dataset.live || '#';
 
@@ -185,12 +144,9 @@ function initModal() {
 
   triggers.forEach(card => {
     card.addEventListener('click', (e) => {
-      // if clicked links inside card, don't open modal
       if (e.target.tagName === 'A') return;
       openModal(card);
     });
-
-    // Keyboard enter
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') openModal(card);
     });
@@ -208,7 +164,6 @@ function initModal() {
   });
 }
 
-/* Form */
 function initForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -250,9 +205,8 @@ function initForm() {
   });
 }
 
-/* Hero Animations with GSAP */
+
 function initHeroAnimations() {
-  // 1. Text fade-in stagger on load
   gsap.from(".hero-title", { y: 100, opacity: 0, duration: 1.2, ease: "power3.out" });
   gsap.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
 
