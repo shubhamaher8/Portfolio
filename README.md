@@ -2,17 +2,13 @@
 
 <div align="center">
 
-![Portfolio Banner](https://img.shields.io/badge/Portfolio-grey?style=for-the-badge&logo=github&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
-
-
-
+![Web3Forms](https://img.shields.io/badge/Web3Forms-4285F4?style=for-the-badge&logo=google&logoColor=white)
 </div>
 
----
 
 ## 🌟 Overview
 
@@ -20,7 +16,29 @@ Welcome to my personal developer portfolio! 👋 This project showcases my skill
 
 > 💡 *"Building Digital Worlds"* - Turning ideas into good digital products.
 
----
+## 🌐 Deployment
+
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://shubhamaher.tech/)
+
+[![Live Project](https://img.shields.io/badge/Live%20Project-shubhamaher.tech-green?style=for-the-badge&logo=vercel)](https://shubhamaher.tech/)
+
+## 📸 Portfolio Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/Homepage.png" alt="Homepage Screenshot" width="420"/>
+      <br/>
+      <b>Homepage View</b>
+    </td>
+    <td align="center">
+      <img src="assets/Project.png" alt="Projects Screenshot" width="420"/>
+      <br/>
+      <b>Projects View</b>
+    </td>
+  </tr>
+</table>
+
 
 ## 🎯 Features
 
@@ -35,8 +53,7 @@ Welcome to my personal developer portfolio! 👋 This project showcases my skill
 | 🖼️ **Project Modal** | Interactive modal with full project details |
 | 📝 **Contact Form** | Functional form powered by Web3Forms API |
 | 🍔 **Mobile Menu** | Hamburger menu with smooth transitions |
-| ⌨️ **Keyboard Accessible** | Full keyboard navigation support |
-| 🎨 **CSS Variables** | Easy theme customization |
+
 
 ## 🛠️ Tech Stack
 
@@ -48,7 +65,6 @@ Welcome to my personal developer portfolio! 👋 This project showcases my skill
 | ![GSAP](https://img.shields.io/badge/-GSAP-88CE02?logo=greensock&logoColor=white) | Animations | 
 | ![Web3Forms](https://img.shields.io/badge/-Web3Forms-4285F4?logo=google&logoColor=white) | Form Backend | 
 | ![Space Grotesk](https://img.shields.io/badge/-Space_Grotesk-000?logo=googlefonts&logoColor=white) | Typography | 
-
 
 
 ## 📁 Project Structure
@@ -65,8 +81,6 @@ Portfolio
 └── js
     └── main.js            
 ```
-
----
 
 ## 🚀 Getting Started
 
@@ -85,33 +99,14 @@ cd portfolio
 # Simply open index.html in your browser
 ```
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome! 🎉
-
-1. 🍴 Fork the repository
-2. 🌿 Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. 📤 Push to branch (`git push origin feature/AmazingFeature`)
-5. 🔃 Open a Pull Request
-
----
-
-## 📜 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
 ## 👨‍💻 Author
 
 <div align="center">
 
 ### **Shubham Aher**
 
-*Software Developer | Building Digital Worlds*
+I’m Shubham Aher, a CSE (IoT, Cybersecurity, Blockchain) undergraduate focused on building secure, AI-powered full-stack systems.
+Actively seeking internships and entry-level roles (2026–2027).
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shubhamaher8)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham-aher-5a5a62291)
@@ -119,5 +114,3 @@ This project is open source and available under the [MIT License](LICENSE).
 [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/ShubhamAhe33390)
 
 </div>
-
----
