@@ -3,20 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initForm();
   initMobileMenu();
-  initScrollHeader();
   initHeroAnimations();
 });
-
-function initScrollHeader() {
-  const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-}
 
 function initMobileMenu() {
   const toggle = document.querySelector('.mobile-toggle');
