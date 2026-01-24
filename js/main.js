@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initMobileMenu();
   initHeroAnimations();
+  initScrollAnimations();
 });
 
 function initMobileMenu() {
@@ -193,9 +194,47 @@ function initForm() {
   });
 }
 
-
 function initHeroAnimations() {
   gsap.from(".hero-title", { y: 100, opacity: 0, duration: 1.2, ease: "power3.out" });
   gsap.from(".hero-subtitle", { y: 80, opacity: 0, duration: 1, delay: 0.3, ease: "power3.out" });
+}
 
+function initScrollAnimations() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const skillCards = document.querySelectorAll(".skill-card");
+  if (skillCards.length > 0) {
+    gsap.from(skillCards, {
+      scrollTrigger: {
+        trigger: ".skills-grid",
+        start: "top 85%",
+        toggleActions: "play none none none", 
+        once: true
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.08,
+      duration: 0.6,
+      ease: "power2.out",
+      clearProps: "all" 
+    });
+  }
+
+  const certCards = document.querySelectorAll(".cert-card");
+  if (certCards.length > 0) {
+    gsap.from(certCards, {
+      scrollTrigger: {
+        trigger: ".cert-list",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true 
+      },
+      opacity: 0,
+      y: 40,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power3.out",
+      clearProps: "all" 
+    });
+  }
 }
