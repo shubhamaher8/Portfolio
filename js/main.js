@@ -118,6 +118,7 @@ function initModal() {
 
     linkRepo.href = card.dataset.repo || '#';
     linkLive.href = card.dataset.live || '#';
+    linkLive.style.display = card.dataset.live ? '' : 'none';
 
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
